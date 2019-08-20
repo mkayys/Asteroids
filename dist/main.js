@@ -115,7 +115,7 @@ eval("const Asteroid = __webpack_require__(/*! ./asteroid */ \"./src/asteroid.js
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\nconst Game = __webpack_require__(/*! ./game.js */ \"./src/game.js\");\n\nfunction GameView(game, ctx) {\n    this.game = game;\n    this.ctx = ctx;\n\n};\n\n\nGameView.prototype.start = function() {\n\n    setInterval(function() {\n        this.game.moveObjects;\n        this.game.draw(this.ctx);\n    }, 20);\n\n};\n\nmodule.exports = GameView;\n\n//# sourceURL=webpack:///./src/game_view.js?");
+eval("const MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\nconst Game = __webpack_require__(/*! ./game.js */ \"./src/game.js\");\n\nfunction GameView(game, ctx) {\n    this.game = game;\n    this.ctx = ctx;\n\n    this.start = this.start.bind(this);\n};\n\n\nGameView.prototype.start = function start() {\n    const that = this;\n    // console.log(this.game);\n    setInterval(function() {\n        that.game.moveObjects();\n        that.game.draw(that.ctx);\n    }, 20);\n\n};\n\n// GameView.prototype.animate = function animate(time) {\n\n// }\n\nmodule.exports = GameView;\n\n//# sourceURL=webpack:///./src/game_view.js?");
 
 /***/ }),
 
