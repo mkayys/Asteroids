@@ -36,4 +36,12 @@ MovingObject.prototype.isCollidedWith = function isCollidedWith(otherObject) {
     return centerDist < (this.radius + otherObject.radius);
 };
 
+// will get rid of:
+
+MovingObject.prototype.collideWith = function collideWith(otherObject){
+    this.game.remove(this);
+    this.game.remove(otherObject);
+};
+
+
 module.exports = MovingObject;
