@@ -27,4 +27,13 @@ MovingObject.prototype.move = function() {
     // this.draw(ctx);
 };
 
+MovingObject.prototype.isCollidedWith = function(otherObject) {
+    const pos1 = this.pos;
+    const pos2 = otherObject.pos;
+    const centerDist = Math.sqrt(
+        Math.pow(pos1[0] - pos2[0], 2) + Math.pow(pos1[1] - pos2[1], 2)
+    );
+    return centerDist < (this.radius + otherObject.radius);
+};
+
 module.exports = MovingObject;
