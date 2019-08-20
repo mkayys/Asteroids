@@ -59,11 +59,14 @@ Game.prototype.checkCollisions = function() {
     const asteroids = this.asteroids;
     for (let i=0; i < asteroids.length; i++) {
         for (let j=0; j< asteroids.length; j++) {
-            const obj1 = asteroids[i];
-            const obj2 = asteroids[j];
+            if (i !== j) {
+                const obj1 = asteroids[i];
+                const obj2 = asteroids[j];
+                // debugger
+                if(obj1.isCollidedWith(obj2)) {
+                    console.log('collision');
+                }
 
-            if(obj1.isCollidedWith(obj2)) {
-                console.log('collision');
             }
         }
     }
