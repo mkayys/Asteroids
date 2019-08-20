@@ -8,9 +8,9 @@ const DEFAULTS = {
 };
 
 function Asteroid(options) {
-    options = options || {};
+  options = options || {};
 
-  options.pos = options.pos;
+  options.pos = options.pos || options.game.randomPosition();
   options.vel = options.vel || Util.randomVec(DEFAULTS.SPEED);
   options.radius = DEFAULTS.RADIUS;
   options.color = DEFAULTS.COLOR;
