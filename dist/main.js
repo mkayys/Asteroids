@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// console.log(\"Webpack is working!\");\n\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\")\n\n\ndocument.addEventListener(\"DOMContentLoaded\", function() {\n    const canvas = document.getElementById('game-canvas');\n\n    const ctx = canvas.getContext('2d');\n    \n    const mo = new MovingObject(\n        { pos: [30, 30], vel: [10, 10], radius: 5, color: \"#00FF00\" }\n    );\n\n    mo.draw(ctx);\n    \n    window.MovingObject = MovingObject;\n\n    console.log('webpack is working!');\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("// console.log(\"Webpack is working!\");\n\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\")\n\n\ndocument.addEventListener(\"DOMContentLoaded\", function() {\n    const canvas = document.getElementById('game-canvas');\n\n    const ctx = canvas.getContext('2d');\n    \n    const mo = new MovingObject(\n        { pos: [30, 30], vel: [10, 10], radius: 5, color: \"#00FF00\" }\n    );\n\n    // mo.draw(ctx);\n    // mo.move();\n    // mo.draw(ctx);\n\n    window.MovingObject = MovingObject;\n    window.move = MovingObject.move;\n    window.draw = MovingObject.draw;\n\n    console.log('webpack is working!');\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -104,7 +104,7 @@ eval("// console.log(\"Webpack is working!\");\n\nconst MovingObject = __webpack
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("function MovingObject(options) {\n    this.pos = options.pos;\n    this.vel = options.vel;\n    this.radius = options.radius;\n    this.color = options.color;\n}\n\nMovingObject.prototype.draw = function(ctx) {\n    ctx.fillStyle = this.color;\n\n    ctx.beginPath();\n\n    ctx.arc(\n        this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI, true\n        // x, y, radius, starting angle, ending angle, counter clockwise\n    );\n\n    ctx.fill();\n}\n\nmodule.exports = MovingObject\n\n//# sourceURL=webpack:///./src/moving_object.js?");
+eval("function MovingObject(options) {\n    this.pos = options.pos;\n    this.vel = options.vel;\n    this.radius = options.radius;\n    this.color = options.color;\n}\n\nMovingObject.prototype.draw = function(ctx) {\n    ctx.fillStyle = this.color;\n\n    ctx.beginPath();\n\n    ctx.arc(\n        this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI, true\n        // x, y, radius, starting angle, ending angle, counter clockwise\n    );\n\n    ctx.fill();\n}\n\nMovingObject.prototype.move = function() {\n    this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];\n    // this.draw(ctx);\n};\n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
 
 /***/ })
 
