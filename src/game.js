@@ -25,7 +25,7 @@ Game.prototype.randomPosition = function randomPosition() {
 };
 
 Game.prototype.draw = function (ctx) {
-    ctx.clearRect();
+    ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
     
     this.asteroids.forEach( function(asteroid) {
         asteroid.draw(ctx);
@@ -38,3 +38,5 @@ Game.prototype.moveObjects = function () {
         asteroid.move();
     })
 };
+
+module.exports = Game;

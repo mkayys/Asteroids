@@ -3,6 +3,7 @@
 const MovingObject = require("./moving_object.js");
 const Asteroid = require("./asteroid.js");
 const Util = require("./util.js");
+const Game = require("./game.js");
 
 document.addEventListener("DOMContentLoaded", function() {
     const canvas = document.getElementById('game-canvas');
@@ -18,12 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {
     // mo.draw(ctx);
     window.ctx = ctx;
     window.canvas = canvas;
-    
+
     window.MovingObject = MovingObject;
     window.move = MovingObject.move;
     window.draw = MovingObject.draw;
     window.Asteroid = Asteroid;
     window.Util = Util;
+    window.Game = Game;
 
     console.log('webpack is working!');
 });
